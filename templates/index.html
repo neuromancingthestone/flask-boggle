@@ -1,0 +1,33 @@
+{% extends 'base.html'  %}
+{% block title %}Boggle{% endblock %}
+
+{% block content %}
+<h1>BOGGLE GAME</h1>
+<section class="score">
+    <p>SCORE = </p>    
+</section>
+<p>
+    <table id="boggleBoard">
+        <tbody>
+            {% for row in board %}
+            <tr>
+                {% for column in row %}
+                <td>{{column}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}  
+        </tbody>
+    </table>
+</p>
+<form method="POST" class="add-guess">
+    <input type="text" placeholder="guess" id="guess" class="guess">
+    <button>Submit</button>
+</form>
+
+<section class="resp">    
+</section>
+
+<script src="http://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+<script src="/static/app.js"></script> 
+{% endblock %}
